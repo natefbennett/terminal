@@ -4,6 +4,7 @@
 #pragma once
 
 #include "ConptyConnection.g.h"
+#include "../inc/cppwinrt_utils.h"
 
 namespace wil
 {
@@ -31,9 +32,9 @@ namespace winrt::Microsoft::Terminal::TerminalConnection::implementation
     private:
         HRESULT _LaunchAttachedClient() noexcept;
         void _ClientTerminated() noexcept;
+        void _transitionToState(const ConnectionState state) noexcept;
 
         winrt::event<TerminalConnection::TerminalOutputEventArgs> _outputHandlers;
-        winrt::event<TerminalConnection::TerminalDisconnectedEventArgs> _disconnectHandlers;
 
         uint32_t _initialRows{};
         uint32_t _initialCols{};
@@ -42,6 +43,7 @@ namespace winrt::Microsoft::Terminal::TerminalConnection::implementation
         hstring _startingTitle;
         guid _guid{}; // A unique session identifier for connected client
 
+        std::atomic<ConnectionState> _state{ ConnectionState::NotConnected };
         bool _connected{};
         std::atomic<bool> _closing{ false };
         bool _recievedFirstByte{ false };
