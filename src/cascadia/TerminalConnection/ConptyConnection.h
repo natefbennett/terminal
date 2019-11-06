@@ -1,4 +1,4 @@
-﻿// Copyright (c) Microsoft Corporation.
+// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 
 #pragma once
@@ -19,14 +19,14 @@ namespace winrt::Microsoft::Terminal::TerminalConnection::implementation
 
         winrt::event_token TerminalOutput(TerminalConnection::TerminalOutputEventArgs const& handler);
         void TerminalOutput(winrt::event_token const& token) noexcept;
-        winrt::event_token TerminalDisconnected(TerminalConnection::TerminalDisconnectedEventArgs const& handler);
-        void TerminalDisconnected(winrt::event_token const& token) noexcept;
         void Start();
         void WriteInput(hstring const& data);
         void Resize(uint32_t rows, uint32_t columns);
         void Close();
 
         winrt::guid Guid() const noexcept;
+
+        UNTYPED_EVENT(StateChanged, StateChangedEventArgs);
 
     private:
         HRESULT _LaunchAttachedClient() noexcept;

@@ -23,11 +23,11 @@ namespace winrt::Microsoft::Terminal::TerminalConnection::implementation
     {
         throw hresult_not_implemented();
     }
-    winrt::event_token AzureConnection::TerminalDisconnected(Microsoft::Terminal::TerminalConnection::TerminalDisconnectedEventArgs const& /*handler*/)
+    winrt::event_token AzureConnection::StateChanged(Windows::Foundation::TypedEventHandler<ITerminalConnection, StateChangedEventArgs> const& handler)
     {
         throw hresult_not_implemented();
     }
-    void AzureConnection::TerminalDisconnected(winrt::event_token const& /*token*/)
+    void AzureConnection::StateChanged(winrt::event_token const& token)
     {
         throw hresult_not_implemented();
     }

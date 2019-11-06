@@ -15,8 +15,8 @@ namespace winrt::Microsoft::Terminal::TerminalConnection::implementation
         static bool IsAzureConnectionAvailable();
         winrt::event_token TerminalOutput(Microsoft::Terminal::TerminalConnection::TerminalOutputEventArgs const& handler);
         void TerminalOutput(winrt::event_token const& token);
-        winrt::event_token TerminalDisconnected(Microsoft::Terminal::TerminalConnection::TerminalDisconnectedEventArgs const& handler);
-        void TerminalDisconnected(winrt::event_token const& token);
+        winrt::event_token StateChanged(StateChangedEventArgs const& handler);
+        void StateChanged(winrt::event_token const& token);
         void Start();
         void WriteInput(hstring const& data);
         void Resize(uint32_t rows, uint32_t columns);
