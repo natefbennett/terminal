@@ -11,6 +11,8 @@ namespace winrt::TerminalApp::implementation
         KeybindingsSettingsContent();
         KeybindingsSettingsContent(std::shared_ptr<::TerminalApp::CascadiaSettings> settings);
 
+        void Test(TerminalApp::AppKeyBindings key_bindings);
+
         int32_t MyProperty();
         void MyProperty(int32_t value);
 

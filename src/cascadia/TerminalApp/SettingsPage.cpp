@@ -4,6 +4,7 @@
 #include "pch.h"
 #include "SettingsPage.h"
 #include "GlobalSettingsContent.h"
+#include "KeyChordSerialization.h"
 #include "ProfilesSettingsContent.h"
 #include "ColorSchemesSettingsContent.h"
 #include "KeybindingsSettingsContent.h"
@@ -31,12 +32,12 @@ namespace winrt::TerminalApp::implementation
 
     void SettingsPage::Create()
     {
-        //_globalSettingsPage = winrt::make_self<TerminalApp::GlobalSettingsContent>(); // comment out to build
-        //_profileSettingsPage = winrt::make_self<TerminalApp::ProfilesSettingsContent>(); // comment out to build
-        //_colorSchemesSettingsPage = winrt::make_self<TerminalApp::ColorSchemesSettingsContent>(); // comment out to build
+        /*_globalSettingsPage = winrt::make_self<TerminalApp::GlobalSettingsContent>();
+        _profileSettingsPage = winrt::make_self<TerminalApp::ProfilesSettingsContent>();
+        _colorSchemesSettingsPage = winrt::make_self<TerminalApp::ColorSchemesSettingsContent>();
 
         // TODO: THIS IS THE PROPER WAY OF DOING IT. THE ABOVE NEED SUPPORT FOR PASSING IN THE SETTINGS.
-        //_keybindingsSettingsPage = winrt::make_self<TerminalApp::KeybindingsSettingsContent>(_settings); // comment out to build
+        _keybindingsSettingsPage = winrt::make_self<TerminalApp::KeybindingsSettingsContent>(_settings);*/
     }
 
     void SettingsPage::SettingsNav_Loaded(IInspectable const&, RoutedEventArgs const&)
@@ -55,6 +56,19 @@ namespace winrt::TerminalApp::implementation
             }
         }
         contentFrame().Navigate(xaml_typename<TerminalApp::GlobalSettingsContent>());
+        const hstring command = L"ctrl+shift+t";
+        auto key_chord = KeyChordSerialization::FromString(command);
+        //auto temp = _settings->GetKeybindings().GetKeyBinding(ShortcutAction::NewTab);
+        auto str = KeyChordSerialization::ToString(key_chord);
+
+        ParseSettings();
+    }
+
+    void SettingsPage::ParseSettings()
+    {
+        const TerminalApp::AppKeyBindings key_bindings = _settings->GetKeybindings();
+        TerminalApp::KeybindingsSettingsContent::Test(key_bindings);
+        const auto test = key_bindings.GetKeyBinding(ShortcutAction::NewTab);
     }
 
     void SettingsPage::SettingsNav_SelectionChanged(Controls::NavigationView sender, Controls::NavigationViewSelectionChangedEventArgs args)

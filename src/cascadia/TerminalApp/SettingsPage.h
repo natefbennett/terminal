@@ -15,6 +15,7 @@ namespace winrt::TerminalApp::implementation
     public:
         SettingsPage();
         SettingsPage(std::shared_ptr<::TerminalApp::CascadiaSettings> settings);
+        void ParseSettings();
 
         void Create();
 

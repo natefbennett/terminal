@@ -22,6 +22,11 @@ namespace winrt::TerminalApp::implementation
         _settings = settings;
     }
 
+    void KeybindingsSettingsContent::Test(TerminalApp::AppKeyBindings key_bindings)
+    {
+        const auto temp = key_bindings;
+    }
+
     int32_t KeybindingsSettingsContent::MyProperty()
     {
         throw hresult_not_implemented();
