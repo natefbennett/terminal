@@ -166,7 +166,7 @@
 
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20, 0, 20">
-                   <TextBox Text="{x:Bind getKeybinding(19)}" Width="135" />
+                   <TextBox Text="" Width="135" />
                     <!--   <TextBox Text="ctrl+shift+w" Width="135" IsReadOnly="True" /> -->
                     
 
@@ -174,22 +174,22 @@
 
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(17)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20, 0,20" >
-                    <TextBox Text="{x:Bind getKeybinding(1)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(6)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(4)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
                 </StackPanel>
                 <StackPanel
@@ -199,49 +199,49 @@
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(20)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(5)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(47)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(3)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(21)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(36)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(38)}" Width="135" />
-
-
-                </StackPanel>
-                <StackPanel
-                        Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(35)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
 
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(37)}" Width="135" />
+                    <TextBox Text="" Width="135" />
+
+
+                </StackPanel>
+                <StackPanel
+                        Orientation="Horizontal" Margin="0, 20 0, 20">
+                    <TextBox Text="" Width="135" />
 
 
                 </StackPanel>
@@ -252,13 +252,13 @@
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(34)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
 
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20 0, 20">
-                    <TextBox Text="{x:Bind getKeybinding(33)}" Width="135" />
+                    <TextBox Text="" Width="135" />
 
 
                 </StackPanel>

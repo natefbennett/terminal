@@ -6,5 +6,6 @@ namespace TerminalApp
     [default_interface] runtimeclass SettingsPage : Windows.UI.Xaml.Controls.Page
     {
         SettingsPage();
+        String GetKeybindingString(Int32 var);
     }
 }
