@@ -4,6 +4,7 @@
 #include "pch.h"
 #include "SettingsPage.h"
 #include "GlobalSettingsContent.h"
+#include "KeyChordSerialization.h"
 #include "ProfilesSettingsContent.h"
 #include "ColorSchemesSettingsContent.h"
 #include <winrt/Windows.UI.Xaml.Interop.h>
@@ -30,7 +31,7 @@ namespace winrt::TerminalApp::implementation
 
     winrt::hstring SettingsPage::GetKeybindingString(int32_t var)
     {
-        winrt::hstring keybinding{ L"Hello, World!" };
-        return keybinding;
+        const auto temp = _settings->GetKeybindings().GetKeyBinding(static_cast<ShortcutAction>(var));
+        return KeyChordSerialization::ToString(temp);
     }
 }
