@@ -7,25 +7,92 @@
    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
    mc:Ignorable="d">
     <Grid x:Name="Root" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="91*" />
-            <ColumnDefinition Width="209*" />
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,0,0">
-            <TextBlock Text="Keybinding Settings" Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="0" Margin="50,42,16,50"/>
-            <TextBlock Text="Action" Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="0" Margin="50,0,0,0"/>
-            <TextBlock Text="closePane" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0" />
-            <TextBlock Text="closeWindow" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
-        </StackPanel>
-        <StackPanel  Grid.Row="0"
+        <ScrollViewer Height="500">
+        <Frame x:Name="contentFrame"
+                   Margin="20">
+            
+                
+            
+            <Grid  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="91*" />
+                    <ColumnDefinition Width="209*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="0" Grid.Column="0">
+                    <TextBlock Text="Keybinding Settings" Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="0" Margin="50,42,16,50"/>
+                    <TextBlock Text="Action" Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="0" Margin="50,0,0,0"/>
+                    <TextBlock Text="closePane" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0" />
+                    <TextBlock Text="closeWindow" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <TextBlock Text="copy" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <TextBlock Text="duplicateTab" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <TextBlock Text="newTab" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <ComboBox  SelectedIndex="0" Width="150"  Margin="50,30,0,0" ToolTipService.ToolTip="Info about this action">
+                        <x:String>newTabProfile0</x:String>
+                        <x:String>newTabProfile1</x:String>
+                        <x:String>newTabProfile2</x:String>
+                        <x:String>newTabProfile3</x:String>
+                        <x:String>newTabProfile4</x:String>
+                        <x:String>newTabProfile5</x:String>
+                        <x:String>newTabProfile6</x:String>
+                        <x:String>newTabProfile7</x:String>
+                        <x:String>newTabProfile8</x:String>
+                    </ComboBox>
+                    <TextBlock Text="nextTab" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <TextBlock Text="openNewTabDropdown" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <TextBlock Text="openSettings" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <TextBlock Text="paste" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <TextBlock Text="prevTab" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <TextBlock Text="scrollDown" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <TextBlock Text="scrollDownPage" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <TextBlock Text="scrollUp" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <TextBlock Text="scrollUpPage" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <ComboBox  SelectedIndex="0" Width="150"  Margin="50,30,0,0" ToolTipService.ToolTip="Info about this action">
+                        <x:String>switchToTab0</x:String>
+                        <x:String>switchToTab1</x:String>
+                        <x:String>switchToTab2</x:String>
+                        <x:String>switchToTab3</x:String>
+                        <x:String>switchToTab4</x:String>
+                        <x:String>switchToTab5</x:String>
+                        <x:String>switchToTab6</x:String>
+                        <x:String>switchToTab7</x:String>
+                        <x:String>switchToTab8</x:String>
+                    </ComboBox>
+                    <TextBlock Text="decreaseFontSize" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+                    <TextBlock Text="increaseFontSize" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
+
+
+                    </StackPanel>
+                <StackPanel  Grid.Row="0"
                Grid.Column="1" >
-            <Button x:Name="btn1" Content="Reset to default" Margin="60" Width="150" HorizontalAlignment="Right"/>
-            <TextBlock Text="Keybinding"
+                    <Button x:Name="btn1" Content="Reset to default" Margin="60" Width="150" HorizontalAlignment="Right"/>
+                    <TextBlock Text="Keybinding"
            Style="{StaticResource SubheaderTextBlockStyle}"
            Grid.Row="0"  Margin="50,0,0,0"/>
-            <TextBox Text="{x:Bind GetKeybindingString(19)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-            <TextBox Text="{x:Bind GetKeybindingString(17)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-        </StackPanel>
+                    <TextBox Text="{x:Bind GetKeybindingString(19)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(17)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(1)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(6)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(4)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="ctrl+shift+1" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(20)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(5)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(47)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(3)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(21)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(36)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(38)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(35)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(37)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="ctrl+alt+1" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(34)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox Text="{x:Bind GetKeybindingString(33)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <Button x:Name="btn2" Content="SAVE" Margin="60" Width="150" HorizontalAlignment="Right"/>
+                </StackPanel>
+            
+                </Grid>
+            
+        </Frame>
+        </ScrollViewer>
     </Grid>
 </Page>
 
