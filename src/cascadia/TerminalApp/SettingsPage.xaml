@@ -8,35 +8,61 @@
    mc:Ignorable="d">
     <Grid x:Name="Root" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ScrollViewer Height="500">
-        <Frame x:Name="contentFrame"
-                   Margin="20">
-            
-                
-            
-            <Grid  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Frame x:Name="contentFrame">
+                <Grid  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="91*" />
+                        <ColumnDefinition Width="60*" />
+                        <ColumnDefinition Width="91*" />
                     <ColumnDefinition Width="209*" />
                 </Grid.ColumnDefinitions>
-                <StackPanel Grid.Row="0" Grid.Column="0">
+                    <StackPanel Grid.Column="0" Background="LightGray">
+                        
+                    </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="1">
+                        
                     <TextBlock Text="Keybinding Settings" Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="0" Margin="50,42,16,50"/>
-                    <TextBlock Text="Action" Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="0" Margin="50,0,0,0"/>
+                    <TextBlock Text="Action"  Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="0" Margin="50,0,0,0"/>
                     <TextBlock Text="closePane" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0" />
                     <TextBlock Text="closeWindow" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
                     <TextBlock Text="copy" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
                     <TextBlock Text="duplicateTab" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
                     <TextBlock Text="newTab" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
-                    <ComboBox  SelectedIndex="0" Width="150"  Margin="50,30,0,0" ToolTipService.ToolTip="Info about this action">
-                        <x:String>newTabProfile0</x:String>
-                        <x:String>newTabProfile1</x:String>
-                        <x:String>newTabProfile2</x:String>
-                        <x:String>newTabProfile3</x:String>
-                        <x:String>newTabProfile4</x:String>
-                        <x:String>newTabProfile5</x:String>
-                        <x:String>newTabProfile6</x:String>
-                        <x:String>newTabProfile7</x:String>
-                        <x:String>newTabProfile8</x:String>
-                    </ComboBox>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="newTabProfile" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0" />
+                        <ComboBox Grid.Column="1" SelectionChanged="actionSelected"  Width="70"  Margin="0,30,0,0" ToolTipService.ToolTip="Info about this action">
+                            <ComboBoxItem  Tag="newTabProfile0">
+                                <x:String >0</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="newTabProfile1">
+                                <x:String >1</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="newTabProfile2">
+                                <x:String >2</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="newTabProfile3">
+                                <x:String >3</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="newTabProfile4">
+                                <x:String >4</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="newTabProfile5">
+                                <x:String >5</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="newTabProfile6">
+                                <x:String >6</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="newTabProfile7">
+                                <x:String >7</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="newTabProfile8">
+                                <x:String >8</x:String>
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
                     <TextBlock Text="nextTab" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
                     <TextBlock Text="openNewTabDropdown" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
                     <TextBlock Text="openSettings" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
@@ -46,24 +72,47 @@
                     <TextBlock Text="scrollDownPage" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
                     <TextBlock Text="scrollUp" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
                     <TextBlock Text="scrollUpPage" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
-                    <ComboBox  SelectedIndex="0" Width="150"  Margin="50,30,0,0" ToolTipService.ToolTip="Info about this action">
-                        <x:String>switchToTab0</x:String>
-                        <x:String>switchToTab1</x:String>
-                        <x:String>switchToTab2</x:String>
-                        <x:String>switchToTab3</x:String>
-                        <x:String>switchToTab4</x:String>
-                        <x:String>switchToTab5</x:String>
-                        <x:String>switchToTab6</x:String>
-                        <x:String>switchToTab7</x:String>
-                        <x:String>switchToTab8</x:String>
-                    </ComboBox>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="switchToTab" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0" />
+                        <ComboBox Grid.Column="1" SelectionChanged="actionSelected"  Width="70"  Margin="0,30,0,0" ToolTipService.ToolTip="Info about this action">
+                            <ComboBoxItem  Tag="switchToTab0">
+                                <x:String >0</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="switchToTab1">
+                                <x:String >1</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="switchToTab2">
+                                <x:String >2</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="switchToTab3">
+                                <x:String >3</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="switchToTab4">
+                                <x:String >4</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="switchToTab5">
+                                <x:String >5</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="switchToTab6">
+                                <x:String >6</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="switchToTab7">
+                                <x:String >7</x:String>
+                            </ComboBoxItem>
+                            <ComboBoxItem  Tag="switchToTab8">
+                                <x:String >8</x:String>
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
                     <TextBlock Text="decreaseFontSize" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
                     <TextBlock Text="increaseFontSize" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
-
-
-                    </StackPanel>
+                </StackPanel>
                 <StackPanel  Grid.Row="0"
-               Grid.Column="1" >
+               Grid.Column="2" >
                     <Button x:Name="btn1" Content="Reset to default" Margin="60" Width="150" HorizontalAlignment="Right"/>
                     <TextBlock Text="Keybinding"
            Style="{StaticResource SubheaderTextBlockStyle}"
@@ -73,7 +122,7 @@
                     <TextBox Text="{x:Bind GetKeybindingString(1)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                     <TextBox Text="{x:Bind GetKeybindingString(6)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                     <TextBox Text="{x:Bind GetKeybindingString(4)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                    <TextBox Text="ctrl+shift+1" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox  x:Name="newTabProfile" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                     <TextBox Text="{x:Bind GetKeybindingString(20)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                     <TextBox Text="{x:Bind GetKeybindingString(5)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                     <TextBox Text="{x:Bind GetKeybindingString(47)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
@@ -83,7 +132,7 @@
                     <TextBox Text="{x:Bind GetKeybindingString(38)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                     <TextBox Text="{x:Bind GetKeybindingString(35)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                     <TextBox Text="{x:Bind GetKeybindingString(37)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                    <TextBox Text="ctrl+alt+1" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                    <TextBox x:Name="switchToTab" Text="ctrl+alt+1" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                     <TextBox Text="{x:Bind GetKeybindingString(34)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                     <TextBox Text="{x:Bind GetKeybindingString(33)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                     <Button x:Name="btn2" Content="SAVE" Margin="60" Width="150" HorizontalAlignment="Right"/>

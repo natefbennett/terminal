@@ -34,4 +34,36 @@ namespace winrt::TerminalApp::implementation
         const auto temp = _settings->GetKeybindings().GetKeyBinding(static_cast<ShortcutAction>(var));
         return KeyChordSerialization::ToString(temp);
     }
+
+    
+    void SettingsPage::actionSelected(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::Controls::SelectionChangedEventArgs const& e)
+    {
+        
+        auto selection = e.AddedItems().GetAt(0).as<Controls::ComboBoxItem>();
+        auto selectionTag = selection.Tag();
+        
+        hstring actionHstring = unbox_value_or<hstring>(selectionTag, L"Default");
+        std::string actionSelected = winrt::to_string(actionHstring);
+
+        std::string action = actionSelected.substr(0, actionSelected.size() - 1);
+        int actionIndex = stoi(actionSelected.substr(actionSelected.size() - 1));
+
+        if (action == "newTabProfile")
+        {
+            newTabProfile().Text(GetKeybindingString(7 + actionIndex));
+        }
+        else if (action == "switchToTab")
+        {
+            switchToTab().Text(GetKeybindingString(24 + actionIndex));
+        }
+      
+    }
+
+
+
+
+
+
 }
+
+
