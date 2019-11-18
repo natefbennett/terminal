@@ -39,22 +39,21 @@ namespace winrt::TerminalApp::implementation
     void SettingsPage::actionSelected(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::Controls::SelectionChangedEventArgs const& e)
     {
         
-        auto selection = e.AddedItems().GetAt(0).as<Controls::ComboBoxItem>();
-        auto selectionTag = selection.Tag();
-        
+        auto selectionTag = e.AddedItems().GetAt(0).as<Controls::ComboBoxItem>().Tag();
         hstring actionHstring = unbox_value_or<hstring>(selectionTag, L"Default");
-        std::string actionSelected = winrt::to_string(actionHstring);
+        int actionIndex = stoi(winrt::to_string(actionHstring));
 
-        std::string action = actionSelected.substr(0, actionSelected.size() - 1);
-        int actionIndex = stoi(actionSelected.substr(actionSelected.size() - 1));
+        auto senderTag = sender.as<Controls::ComboBox>().Tag();
+        hstring action = unbox_value_or<hstring>(senderTag, L"Default");
+       
 
-        if (action == "newTabProfile")
+        if (action == L"newTabProfile")
         {
-            newTabProfile().Text(GetKeybindingString(7 + actionIndex));
+            newTabProfile_keybind().Text(GetKeybindingString(7 + actionIndex));
         }
-        else if (action == "switchToTab")
+        else if (action == L"switchToTab")
         {
-            switchToTab().Text(GetKeybindingString(24 + actionIndex));
+            switchToTab_keybind().Text(GetKeybindingString(24 + actionIndex));
         }
       
     }
