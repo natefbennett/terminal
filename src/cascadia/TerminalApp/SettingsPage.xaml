@@ -132,7 +132,7 @@
                     <TextBox x:Name="switchToTab_keybind" Text="ctrl+alt+1" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                     <TextBox x:Name="decreaseFontSize_keybind" Text="{x:Bind GetKeybindingString(34)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                     <TextBox x:Name="increaseFontSize_keybind" Text="{x:Bind GetKeybindingString(33)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                    <Button x:Name="btn2" Content="SAVE" Margin="60" Width="150" HorizontalAlignment="Right"/>
+                    <Button x:Name="btn2" Click="SaveKeybindings" Content="SAVE" Margin="60" Width="150" HorizontalAlignment="Right"/>
                 </StackPanel>
             
                 </Grid>

@@ -55,13 +55,14 @@ namespace winrt::TerminalApp::implementation
         {
             switchToTab_keybind().Text(GetKeybindingString(24 + actionIndex));
         }
+
       
     }
 
-
-
-
-
+    void SettingsPage::SaveKeybindings(winrt::Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::RoutedEventArgs const& args)
+    {
+        
+    }
 
 }
 

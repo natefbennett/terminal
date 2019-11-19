@@ -17,6 +17,8 @@ namespace winrt::TerminalApp::implementation
         SettingsPage(std::shared_ptr<::TerminalApp::CascadiaSettings> settings);
         winrt::hstring GetKeybindingString(int32_t var);
         void actionSelected(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::Controls::SelectionChangedEventArgs const& e);
+        void SaveKeybindings(winrt::Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::RoutedEventArgs const& args);
+        
     private:
         std::shared_ptr<::TerminalApp::CascadiaSettings> _settings{ nullptr };
     };
