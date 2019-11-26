@@ -35,7 +35,6 @@ namespace winrt::TerminalApp::implementation
         return KeyChordSerialization::ToString(temp);
     }
 
-    
     void SettingsPage::actionSelected(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::Controls::SelectionChangedEventArgs const& e)
     {
         
@@ -62,6 +61,17 @@ namespace winrt::TerminalApp::implementation
     void SettingsPage::SaveKeybindings(winrt::Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::RoutedEventArgs const& args)
     {
         
+    }
+
+    void SettingsPage::textbox_KeyDown(winrt::Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs const& e)
+    {
+        //implementation
+        throw hresult_not_implemented();
+    }
+
+    void SettingsPage::textbox_Loaded(winrt::Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::RoutedEventArgs const& e)
+    {
+        this->AddHandler(UIElement::KeyDownEvent, KeyDown( &SettingsPage::textbox_KeyDown ), true);
     }
 
 }

@@ -18,7 +18,10 @@ namespace winrt::TerminalApp::implementation
         winrt::hstring GetKeybindingString(int32_t var);
         void actionSelected(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::Controls::SelectionChangedEventArgs const& e);
         void SaveKeybindings(winrt::Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::RoutedEventArgs const& args);
-        
+
+        void textbox_KeyDown(winrt::Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs const& e);
+        void textbox_Loaded(winrt::Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::RoutedEventArgs const& e);
+
     private:
         std::shared_ptr<::TerminalApp::CascadiaSettings> _settings{ nullptr };
     };

@@ -166,7 +166,7 @@
 
                 <StackPanel
                         Orientation="Horizontal" Margin="0, 20, 0, 20">
-                   <TextBox Text="" Width="135" />
+                    <TextBox Text="" Width="135" Loaded="textbox_Loaded"/>
                     <!--   <TextBox Text="ctrl+shift+w" Width="135" IsReadOnly="True" /> -->
                     
 
