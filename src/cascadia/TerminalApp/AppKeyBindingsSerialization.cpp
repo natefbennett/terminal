@@ -11,6 +11,7 @@
 #include "KeyChordSerialization.h"
 #include "Utils.h"
 #include "JsonUtils.h"
+
 #include <winrt/Microsoft.Terminal.Settings.h>
 
 using namespace winrt::Microsoft::Terminal::Settings;
@@ -188,6 +189,15 @@ Json::Value winrt::TerminalApp::implementation::AppKeyBindings::ToJson()
     }
 
     return bindingsArray;
+}
+
+// Method Description:
+// This function returns the string representation of the the current key bindings
+winrt::hstring winrt::TerminalApp::implementation::AppKeyBindings::ToString()
+{
+    const Json::Value json_obj = ToJson();
+    
+    return winrt::to_hstring(json_obj.toStyledString());
 }
 
 // Method Description:

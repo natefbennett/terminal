@@ -8,9 +8,11 @@
 #include "ProfilesSettingsContent.h"
 #include "ColorSchemesSettingsContent.h"
 #include <winrt/Windows.UI.Xaml.Interop.h>
-
+#include <fstream>
+#include <iostream>
 #include "SettingsPage.g.cpp"
 
+using namespace std;
 using namespace winrt;
 using namespace Windows::UI::Xaml;
 using namespace ::TerminalApp;
@@ -29,6 +31,7 @@ namespace winrt::TerminalApp::implementation
         _settings = settings;
     }
 
+    // Returns a string based on the enum that matches the int value passed
     winrt::hstring SettingsPage::GetKeybindingString(int32_t var)
     {
         const auto temp = _settings->GetKeybindings().GetKeyBinding(static_cast<ShortcutAction>(var));
@@ -59,9 +62,16 @@ namespace winrt::TerminalApp::implementation
       
     }
 
+    // Goes through each command on the keybindings xaml ui and exports it to json
     void SettingsPage::SaveKeybindings(winrt::Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::RoutedEventArgs const& args)
     {
-        
+        const auto key_bindings = _settings->GetKeybindings();
+        std::string json_string = winrt::to_string(key_bindings.ToString());
+
+        ofstream myfile;
+        myfile.open("C:/Users/josep/Documents/example.txt");
+        myfile << json_string;
+        myfile.close();
     }
 
 }

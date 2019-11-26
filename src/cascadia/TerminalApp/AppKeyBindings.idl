@@ -59,6 +59,7 @@ namespace TerminalApp
     [default_interface] runtimeclass AppKeyBindings : Microsoft.Terminal.Settings.IKeyBindings
     {
         AppKeyBindings();
+        String ToString();
 
         void SetKeyBinding(ShortcutAction action, Microsoft.Terminal.Settings.KeyChord chord);
         void ClearKeyBinding(Microsoft.Terminal.Settings.KeyChord chord);

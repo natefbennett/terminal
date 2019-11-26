@@ -50,6 +50,7 @@ namespace winrt::TerminalApp::implementation
         // Defined in AppKeyBindingsSerialization.cpp
         void LayerJson(const Json::Value& json);
         Json::Value ToJson();
+        winrt::hstring ToString();
 
         // clang-format off
         TYPED_EVENT(CopyText,          TerminalApp::AppKeyBindings, TerminalApp::ActionEventArgs);
