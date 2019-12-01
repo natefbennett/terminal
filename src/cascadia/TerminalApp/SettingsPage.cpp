@@ -7,6 +7,7 @@
 #include "KeyChordSerialization.h"
 #include "ProfilesSettingsContent.h"
 #include "ColorSchemesSettingsContent.h"
+#include "CascadiaSettings.h"
 #include <winrt/Windows.UI.Xaml.Interop.h>
 #include <fstream>
 #include <iostream>
@@ -52,11 +53,22 @@ namespace winrt::TerminalApp::implementation
 
         if (action == L"newTabProfile")
         {
-            newTabProfile_keybind().Text(GetKeybindingString(7 + actionIndex));
+            const int index = 7 + actionIndex;
+            const hstring indexHString = winrt::to_hstring(index);
+
+            //Set text and tag
+            newTabProfile_keybind().Text(GetKeybindingString(index));
+            newTabProfile_keybind().Tag(winrt::box_value(indexHString));
         }
         else if (action == L"switchToTab")
         {
-            switchToTab_keybind().Text(GetKeybindingString(24 + actionIndex));
+            const int index = 24 + actionIndex;
+            const hstring indexHString = winrt::to_hstring(index);
+
+            //Set text and tag
+            switchToTab_keybind().Text(GetKeybindingString(index));
+            switchToTab_keybind().Tag(winrt::box_value(indexHString));
+
         }
 
       
@@ -72,6 +84,34 @@ namespace winrt::TerminalApp::implementation
         myfile.open("C:/Users/josep/Documents/example.txt");
         myfile << json_string;
         myfile.close();
+    }
+
+    void SettingsPage::ResetToDefault(winrt::Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::RoutedEventArgs const& args)
+    {
+         //Getting the default keybindings
+        const auto defaults = CascadiaSettings::LoadDefaults();
+        const winrt::TerminalApp::AppKeyBindings default_keybindings = defaults->GetKeybindings();
+
+        //Go through every keybinding 
+        for (uint32_t x = 0; x < Keybindings().Children().Size(); x++)
+        {
+            const auto keybindItem = Keybindings().Children().GetAt(x).as<Controls::TextBox>();
+            const auto keybindTag = keybindItem.Tag();
+            hstring keybindTagHstring = unbox_value_or<hstring>(keybindTag, L"Default");
+
+            //Makes sure were are replacing a text without any errors
+            //The textbox might be empty so we will not replace text when no selection is made on a dropdown
+            if (keybindTagHstring != L"Default")
+            {
+                //Get the index of the action to get the keybind pairing
+                int keybindIndex = stoi(winrt::to_string(keybindTagHstring));
+
+                //Replace curent text with default keybinding
+                keybindItem.Text(GetKeybindingString(keybindIndex));
+            }
+
+        
+        }
     }
 
 }
