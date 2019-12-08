@@ -19,7 +19,7 @@
 
                     </StackPanel>
                     <StackPanel Grid.Row="0" Grid.Column="1">
-                        <TextBlock Text="Keybinding " Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="0" Margin="50,42,16,50"/>
+                        <TextBlock Text="Keybindings" Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="0" Margin="50,42,16,50"/>
                         <TextBlock Text="Action"  Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="0" Margin="50,0,0,0"/>
                         <StackPanel x:Name="Actions">
                             <TextBlock x:Name="copy_action" Text="copy" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0"/>
@@ -33,7 +33,7 @@
                                     <ColumnDefinition Width="70" />
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0" Text="newTabProfile" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0" />
-                                <ComboBox Tag="newTabProfile" Grid.Column="1" SelectionChanged="actionSelected"  Width="70"  Margin="0,30,0,0" ToolTipService.ToolTip="Info about this action">
+                                <ComboBox Tag="newTabProfile" Grid.Column="1" SelectionChanged="ActionSelected"  Width="70"  Margin="0,30,0,0" ToolTipService.ToolTip="Info about this action">
                                     <ComboBoxItem Tag="0" x:Name="newTabProfile0">
                                         <x:String >0</x:String>
                                     </ComboBoxItem>
@@ -79,7 +79,7 @@
                                     <ColumnDefinition Width="70" />
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0" Text="switchToTab" ToolTipService.ToolTip="Info about this action"  VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Margin="50,30,0,0" />
-                                <ComboBox Tag="switchToTab" Grid.Column="1" SelectionChanged="actionSelected"  Width="70"  Margin="0,30,0,0" ToolTipService.ToolTip="Info about this action">
+                                <ComboBox Tag="switchToTab" Grid.Column="1" SelectionChanged="ActionSelected"  Width="70"  Margin="0,30,0,0" ToolTipService.ToolTip="Info about this action">
                                     <ComboBoxItem Tag="0" x:Name="switchToTab0">
                                         <x:String >0</x:String>
                                     </ComboBoxItem>
@@ -116,24 +116,24 @@
                         <Button x:Name="btn1" Click="ResetToDefault" Content="Reset to default" Margin="60" Width="150" HorizontalAlignment="Right"/>
                         <TextBlock Text="Keybinding" Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="0"  Margin="50,0,0,3"/>
                         <StackPanel x:Name="Keybindings">
-                            <TextBox x:Name="copy_keybind" Tag="1" Text="{x:Bind GetKeybindingString(1)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="paste_keybind" Tag="3" Text="{x:Bind GetKeybindingString(3)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="newTab_keyind" Tag="4" Text="{x:Bind GetKeybindingString(4)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="openNewTabDropdown_keybind" Tag="5" Text="{x:Bind GetKeybindingString(5)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="duplicateTab_keybind" Tag="6" Text="{x:Bind GetKeybindingString(6)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="copy_keybind" Tag="1" PlaceholderText="{x:Bind GetKeybindingString(1), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="paste_keybind" Tag="3" PlaceholderText="{x:Bind GetKeybindingString(3), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="newTab_keyind" Tag="4" PlaceholderText="{x:Bind GetKeybindingString(4), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="openNewTabDropdown_keybind" Tag="5" PlaceholderText="{x:Bind GetKeybindingString(5), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="duplicateTab_keybind" Tag="6" PlaceholderText="{x:Bind GetKeybindingString(6), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                             <TextBox x:Name="newTabProfile_keybind" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="closeWindow_keybind" Tag="17" Text="{x:Bind GetKeybindingString(17)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="closePane_keybind" Tag="19" Text="{x:Bind GetKeybindingString(19)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="nextTab_keybind" Tag="20" Text="{x:Bind GetKeybindingString(20)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="prevTab_keybind" Tag="21" Text="{x:Bind GetKeybindingString(21)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="increaseFontSize_keybind" Tag="33" Text="{x:Bind GetKeybindingString(33)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="decreaseFontSize_keybind" Tag="34" Text="{x:Bind GetKeybindingString(34)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="scrollUp_keybind" Tag="35" Text="{x:Bind GetKeybindingString(35)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="scrollUpPage_keybind" Tag="37" Text="{x:Bind GetKeybindingString(37)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="scrollDown_keybind" Tag="36" Text="{x:Bind GetKeybindingString(36)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="scrollDownPage_keybind" Tag="38" Text="{x:Bind GetKeybindingString(38)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="closeWindow_keybind" Tag="17" PlaceholderText="{x:Bind GetKeybindingString(17), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="closePane_keybind" Tag="19" PlaceholderText="{x:Bind GetKeybindingString(19), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="nextTab_keybind" Tag="20" PlaceholderText="{x:Bind GetKeybindingString(20), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="prevTab_keybind" Tag="21" PlaceholderText="{x:Bind GetKeybindingString(21), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="increaseFontSize_keybind" Tag="33" PlaceholderText="{x:Bind GetKeybindingString(33), Mode=OneWay}" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Text="" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="decreaseFontSize_keybind" Tag="34" PlaceholderText="{x:Bind GetKeybindingString(34), Mode=OneWay}" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Text="" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="scrollUp_keybind" Tag="35" PlaceholderText="{x:Bind GetKeybindingString(35), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="scrollUpPage_keybind" Tag="37" PlaceholderText="{x:Bind GetKeybindingString(37), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="scrollDown_keybind" Tag="36" PlaceholderText="{x:Bind GetKeybindingString(36), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="scrollDownPage_keybind" Tag="38" PlaceholderText="{x:Bind GetKeybindingString(38), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                             <TextBox x:Name="switchToTab_keybind" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
-                            <TextBox x:Name="openSettings_keybind" Tag="47" Text="{x:Bind GetKeybindingString(47)}" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
+                            <TextBox x:Name="openSettings_keybind" Tag="47" PlaceholderText="{x:Bind GetKeybindingString(47), Mode=OneWay}" Text="" PreviewKeyUp="PreviewKeyUpHandler" PreviewKeyDown="PreviewKeyDownHandler" Width="135" Margin="50,30,0,0" HorizontalAlignment="Left" />
                         </StackPanel>
                         <Button x:Name="btn2" Click="SaveKeybindings" Content="SAVE" Margin="60" Width="150" HorizontalAlignment="Right"/>
 
