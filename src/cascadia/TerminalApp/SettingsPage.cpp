@@ -252,9 +252,16 @@ namespace winrt::TerminalApp::implementation
             {
                 //Get the index of the action to get the keybind pairing
                 int keybindIndex = stoi(winrt::to_string(keybindTagHstring));
-                const auto temp = winrt::to_string(GetKeybindingString(keybindIndex)); // debug
+
+                // get shortcut action from enum
+                const auto currShortcutAction = static_cast<ShortcutAction>(keybindIndex);
+
+                // get the default binding for current shorcut action
+                const auto keyChord = default_keybindings.GetKeyBinding(currShortcutAction);
+                const winrt::hstring defaultBinding = KeyChordSerialization::ToString(keyChord);
+
                 //Replace curent text with default keybinding
-                keybindItem.Text(GetKeybindingString(keybindIndex));
+                keybindItem.Text(defaultBinding);
             }
         }
     }
